@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">BullionTest</string>
+    <string name="logo_bei">BEI Logo</string>
+    <string name="email_address">Email Address</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="register">Add new Users</string>
+    <string name="placeholder_here">Placeholder here</string>
+</resources>
