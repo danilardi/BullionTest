@@ -14,7 +14,7 @@ class RegisterActivity : AppCompatActivity() {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.appBar.btnBack.setOnClickListener{
+        binding.backTopBar.btnBack.setOnClickListener{
             finish()
         }
     }

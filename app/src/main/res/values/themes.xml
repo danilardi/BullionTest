@@ -8,5 +8,11 @@
         <item name="android:statusBarColor">@color/transparent</item>
     </style>
 
+
+
+    <style name="RoundedSquare">
+        <item name="cornerSize">10%</item>
+    </style>
+
     <style name="Theme.BullionTest" parent="Base.Theme.BullionTest" />
 </resources>

@@ -7,8 +7,8 @@
     tools:context=".ui.auth.RegisterActivity">
 
     <include
-        android:id="@+id/app_bar"
-        layout="@layout/app_bar" />
+        android:id="@+id/back_top_bar"
+        layout="@layout/back_top_bar" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_content_view"
@@ -18,11 +18,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/app_bar">
+        app:layout_constraintTop_toBottomOf="@+id/back_top_bar">
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="16dp">
 
             <LinearLayout
