@@ -6,4 +6,6 @@
     <string name="sign_in">Sign In</string>
     <string name="register">Add new Users</string>
     <string name="placeholder_here">Placeholder here</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

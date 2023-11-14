@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cv_user_item"
     android:layout_width="match_parent"
-    android:layout_height="64dp"
+    android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:layout_marginTop="8dp"
     android:layout_marginBottom="8dp"
@@ -18,7 +18,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:minHeight="64dp">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/img_item_photo"
@@ -36,8 +37,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:layout_marginTop="16dp"
             android:layout_toEndOf="@id/img_item_photo"
+            android:layout_toStartOf="@+id/tv_date"
             android:text="Ghalyatama Ikram Fauzi"
             android:textColor="@color/black"
             android:textSize="12sp"
@@ -49,7 +52,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_name"
             android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="16dp"
             android:layout_toEndOf="@id/img_item_photo"
+            android:layout_toStartOf="@+id/tv_date"
             android:text="ghalyatama@bullion.com"
             android:textColor="@color/gray_60"
             android:textSize="10sp"
