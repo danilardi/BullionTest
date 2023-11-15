@@ -15,6 +15,8 @@ class MainViewModel(private val pref: AuthPreferences, private val repository: R
     }
 
     fun getListUser(token: String?) = repository.getListUser(token)
+
+    fun getDetailUser(token: String?, id: String) = repository.getDetailUser(token, id)
     fun getAuth(): LiveData<DataLoginResponse> {
         return pref.getAuth().asLiveData()
     }

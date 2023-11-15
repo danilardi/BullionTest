@@ -27,10 +27,9 @@ data class DataLoginResponse(
 	val token: String
 )
 
-data class UsersResponse(
-
+data class RegisterResponse(
 	@field:SerializedName("data")
-	val data: List<DataItemUsersResponse>,
+	val dataRegisterResponse: DataRegisterResponse,
 
 	@field:SerializedName("message")
 	val message: String,
@@ -42,7 +41,30 @@ data class UsersResponse(
 	val status: Int
 )
 
-data class DataItemUsersResponse(
+data class DataRegisterResponse(
+	@field:SerializedName("name")
+	val name: String,
+
+	@field:SerializedName("email")
+	val email: String,
+)
+
+data class UsersResponse(
+
+	@field:SerializedName("data")
+	val data: List<DataUserResponse>,
+
+	@field:SerializedName("message")
+	val message: String,
+
+	@field:SerializedName("iserror")
+	val iserror: Boolean,
+
+	@field:SerializedName("status")
+	val status: Int
+)
+
+data class DataUserResponse(
 
 	@field:SerializedName("address")
 	val address: String,
@@ -58,6 +80,51 @@ data class DataItemUsersResponse(
 
 	@field:SerializedName("name")
 	val name: String,
+
+	@field:SerializedName("photo")
+	val photo: String,
+
+	@field:SerializedName("_id")
+	val id: String,
+
+	@field:SerializedName("email")
+	val email: String
+)
+
+data class DetailUserResponse(
+
+	@field:SerializedName("data")
+	val data: DataDetailUserResponse,
+
+	@field:SerializedName("message")
+	val message: String,
+
+	@field:SerializedName("iserror")
+	val iserror: Boolean,
+
+	@field:SerializedName("status")
+	val status: Int
+)
+
+data class DataDetailUserResponse(
+
+	@field:SerializedName("address")
+	val address: String,
+
+	@field:SerializedName("gender")
+	val gender: String,
+
+	@field:SerializedName("phone")
+	val phone: String,
+
+	@field:SerializedName("date_of_birth")
+	val dateOfBirth: String,
+
+	@field:SerializedName("first_name")
+	val firstName: String,
+
+	@field:SerializedName("last_name")
+	val lastName: String,
 
 	@field:SerializedName("photo")
 	val photo: String,

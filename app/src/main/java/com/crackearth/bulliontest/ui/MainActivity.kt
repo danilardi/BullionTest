@@ -9,8 +9,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.crackearth.bulliontest.adapter.ListUserAdapter
 import com.crackearth.bulliontest.databinding.ActivityMainBinding
-import com.crackearth.bulliontest.model.DataItemUsersResponse
+import com.crackearth.bulliontest.model.DataUserResponse
 import com.crackearth.bulliontest.ui.auth.LoginActivity
+import com.crackearth.bulliontest.ui.auth.RegisterActivity
 import com.crackearth.bulliontest.utils.Response
 import com.crackearth.bulliontest.utils.dataStore
 import com.crackearth.bulliontest.viewmodel.MainViewModel
@@ -39,32 +40,44 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
+        binding.btnRegister.setOnClickListener {
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun getListUser() {
         mainViewModel.getAuth().observe(this) { user ->
-            showLoading(true)
-            mainViewModel.getListUser("Bearer ${user.token}").observe(this) { response ->
-                when (response) {
-                    is Response.Success -> {
-                        showLoading(false)
-                        setUserData(response.data.data)
-                    }
-                    is Response.Error -> {
-                        showLoading(false)
-                        Toast.makeText(this, "Terjadi Kesalahan", Toast.LENGTH_SHORT).show()
-                    }
-                    is Response.Loading -> {
-                        showLoading(true)
-                    }
+            if (user.token != "null") {
+                showLoading(true)
+                mainViewModel.getListUser("Bearer ${user.token}").observe(this) { response ->
+                    when (response) {
+                        is Response.Success -> {
+                            showLoading(false)
+                            setUserData(response.data.data)
+                        }
+                        is Response.Error -> {
+                            showLoading(false)
+                            Toast.makeText(this, "Terjadi Kesalahan", Toast.LENGTH_SHORT).show()
+                        }
+                        is Response.Loading -> {
+                            showLoading(true)
+                        }
 
-                    else -> {}
+                        else -> {}
+                    }
                 }
+            } else {
+                val intent = Intent(this@MainActivity, LoginActivity::class.java)
+                startActivity(intent)
+                finish()
             }
+
         }
     }
 
-    private fun setUserData(listUser: List<DataItemUsersResponse>) {
+    private fun setUserData(listUser: List<DataUserResponse>) {
         val adapter = ListUserAdapter(listUser)
         binding.rvUsers.adapter = adapter
     }

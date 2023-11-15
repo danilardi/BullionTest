@@ -1,10 +1,13 @@
 package com.crackearth.bulliontest.ui.auth
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.crackearth.bulliontest.databinding.ActivityLoginBinding
 import com.crackearth.bulliontest.model.LoginRequest
@@ -23,11 +26,14 @@ class LoginActivity : AppCompatActivity() {
         ViewModelFactory.getInstance(dataStore)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        isLogin()
 
         binding.btnRegister.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
@@ -76,7 +82,7 @@ class LoginActivity : AppCompatActivity() {
 
                 is Response.Error -> {
                     showLoading(false)
-                    Toast.makeText(this, "Terjadi Kesalahan", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, response.error, Toast.LENGTH_SHORT).show()
                 }
 
                 is Response.Loading -> {
@@ -84,6 +90,22 @@ class LoginActivity : AppCompatActivity() {
                 }
 
             }
+        }
+    }
+
+    private fun isLogin() {
+        showLoading(true)
+        authViewModel.getAuth().observe(this) { user ->
+            if (user.token != "null") {
+                showLoading(false)
+                Log.d(TAG, "isLogin: token ada = ${user.token}")
+                startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                finish()
+            } else {
+                Log.d(TAG, "isLogin: token null = ${user.token}")
+                showLoading(false)
+            }
+
         }
     }
 

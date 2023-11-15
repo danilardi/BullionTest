@@ -8,7 +8,7 @@
     <color name="gray_30">#D1D1D6</color>
     <color name="gray_20">#AEAEB2</color>
     <color name="blue">#255E92</color>
-    
+    <color name="blue_80">#2E75B6</color>
     <color name="transparent">#00000000</color>
     <color name="navigationBarColor">#F9F9FA</color>
 </resources>

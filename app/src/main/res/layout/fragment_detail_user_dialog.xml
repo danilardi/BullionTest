@@ -26,7 +26,7 @@
             android:src="@drawable/ic_close"/>
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/img_item_photo"
+            android:id="@+id/iv_user_photo"
             android:layout_width="54dp"
             android:layout_height="54dp"
             android:layout_alignParentStart="true"
@@ -44,8 +44,8 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginTop="10dp"
-            android:layout_below="@id/img_item_photo"
-            android:text="Ghalyatama Ikram Fauzi"
+            android:layout_below="@id/iv_user_photo"
+            tools:text="Ghalyatama Ikram Fauzi"
             android:textColor="@color/black"
             android:textSize="12sp"
             android:textStyle="bold" />
@@ -57,7 +57,7 @@
             android:layout_below="@id/tv_name"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:text="ghalyatama@bullion.com"
+            tools:text="ghalyatama@bullion.com"
             android:textColor="@color/gray_60"
             android:textSize="10sp"
             android:textStyle="bold" />
@@ -82,7 +82,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_below="@id/tv_gender_label"
-            android:text="MALE"
+            tools:text="MALE"
             android:textColor="@color/black"
             android:textSize="12sp"
             android:textStyle="bold" />
@@ -107,7 +107,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_below="@id/tv_phone_label"
-            android:text="082182822828"
+            tools:text="082182822828"
             android:textColor="@color/black"
             android:textSize="12sp"
             android:textStyle="bold" />
@@ -132,7 +132,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_below="@id/tv_birth_label"
-            android:text="14 May 1998"
+            tools:text="14 May 1998"
             android:textColor="@color/black"
             android:textSize="12sp"
             android:textStyle="bold" />
@@ -157,7 +157,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_below="@id/tv_address_label"
-            android:text="JL Moh Hatta Gg Bunga Emas No.1002 Tanjung Senang, Bandar Lampung"
+            tools:text="JL Moh Hatta Gg Bunga Emas No.1002 Tanjung Senang, Bandar Lampung"
             android:textColor="@color/black"
             android:textSize="12sp"
             android:textStyle="bold" />
@@ -173,8 +173,19 @@
             android:layout_below="@+id/tv_address"
             android:text="Edit User"/>
 
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            tools:visibility="visible" />
 
     </RelativeLayout>
+
+
+
 
 
 
