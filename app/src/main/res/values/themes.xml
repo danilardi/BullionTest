@@ -4,7 +4,7 @@
         <!-- Customize your light theme here. -->
         <item name="colorPrimary">@color/blue</item>
 
-        <item name="colorSecondary">@color/orange</item>
+        <item name="colorSecondary">@color/blue</item>
 
 
         <item name="android:windowBackground">@drawable/gradien_background</item>

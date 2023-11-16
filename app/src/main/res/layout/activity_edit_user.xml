@@ -23,12 +23,12 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/btn_update"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="16dp"
-            android:layout_marginBottom="24dp">
+            android:layout_marginBottom="24dp"
+            app:layout_constraintBottom_toTopOf="@id/btn_update"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
                 android:id="@+id/ll_form_register"
@@ -47,7 +47,7 @@
                     android:id="@+id/tv_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Name"
+                    android:text="@string/name"
                     android:textSize="12sp" />
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -66,7 +66,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edt_name"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
@@ -74,7 +74,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="Gender"
+                    android:text="@string/gender"
                     android:textSize="12sp" />
 
                 <LinearLayout
@@ -87,16 +87,16 @@
                         android:id="@+id/cb_male"
                         android:layout_width="wrap_content"
                         android:layout_height="20dp"
-                        android:text="Male"
-                        android:textSize="14sp"
-                        android:checked="true"/>
+                        android:checked="true"
+                        android:text="@string/male"
+                        android:textSize="14sp" />
 
                     <com.google.android.material.checkbox.MaterialCheckBox
                         android:id="@+id/cb_female"
                         android:layout_width="wrap_content"
                         android:layout_height="20dp"
                         android:layout_marginStart="16dp"
-                        android:text="Female" />
+                        android:text="@string/female" />
 
                 </LinearLayout>
 
@@ -105,7 +105,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="Date of Birth"
+                    android:text="@string/date_of_birth"
                     android:textSize="12sp" />
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -117,17 +117,17 @@
                     app:boxCornerRadiusBottomStart="100dp"
                     app:boxCornerRadiusTopEnd="100dp"
                     app:boxCornerRadiusTopStart="100dp"
+                    app:endIconDrawable="@drawable/ic_calendar"
+                    app:endIconMode="custom"
                     app:expandedHintEnabled="false"
                     app:placeholderText="@string/placeholder_here"
-                    app:placeholderTextColor="@color/gray_20"
-                    app:endIconDrawable="@drawable/ic_calendar"
-                    app:endIconMode="custom">
+                    app:placeholderTextColor="@color/gray_20">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edt_birth"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:focusable="false"/>
+                        android:focusable="false" />
                 </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -136,7 +136,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="Email Address"
+                    android:text="@string/email_address"
                     android:textSize="12sp" />
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -156,7 +156,7 @@
                         android:id="@+id/edt_email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textEmailAddress"/>
+                        android:inputType="textEmailAddress" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
@@ -164,7 +164,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="Address"
+                    android:text="@string/address"
                     android:textSize="12sp" />
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -184,7 +184,7 @@
                         android:id="@+id/edt_address"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textLongMessage"/>
+                        android:inputType="textLongMessage" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
@@ -192,7 +192,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="Phone Number"
+                    android:text="@string/phone_number"
                     android:textSize="12sp" />
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -212,7 +212,7 @@
                         android:id="@+id/edt_phone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="phone"/>
+                        android:inputType="phone" />
                 </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
@@ -222,13 +222,13 @@
             android:id="@+id/btn_update"
             android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:layout_marginBottom="32dp"
             android:layout_marginStart="24dp"
             android:layout_marginEnd="24dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="32dp"
+            android:text="@string/update_users"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:text="Update Users" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

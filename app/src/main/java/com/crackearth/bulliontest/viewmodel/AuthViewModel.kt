@@ -12,7 +12,8 @@ import com.crackearth.bulliontest.repository.Repository
 import kotlinx.coroutines.launch
 import java.io.File
 
-class AuthViewModel(private val pref: AuthPreferences,  private val repository: Repository): ViewModel() {
+class AuthViewModel(private val pref: AuthPreferences, private val repository: Repository) :
+    ViewModel() {
     fun login(data: LoginRequest) = repository.login(data)
 
     fun register(file: File, data: RegisterRequest) = repository.register(file, data)

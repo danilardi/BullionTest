@@ -39,7 +39,7 @@ class DetailUserDialogFragment : DialogFragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         _binding = FragmentDetailUserDialogBinding.inflate(inflater, container, false)
         return binding.root
@@ -112,7 +112,9 @@ class DetailUserDialogFragment : DialogFragment() {
 
         val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
         val date = LocalDate.parse(data.dateOfBirth, formatter)
-        binding.tvBirth.text = "${date.dayOfMonth} ${date.month.toString().lowercase().replaceFirstChar { it.uppercase() }} ${date.year}"
+        binding.tvBirth.text = "${date.dayOfMonth} ${
+            date.month.toString().lowercase().replaceFirstChar { it.uppercase() }
+        } ${date.year}"
 
         val imageBytes = Base64.decode(data.photo, Base64.DEFAULT)
         val decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)

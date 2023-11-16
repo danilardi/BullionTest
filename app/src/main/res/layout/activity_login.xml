@@ -64,7 +64,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress"
-                    android:text="admin@email.com"/>
+                    android:text="@string/sample_email" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -94,7 +94,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
-                    android:text="admin123"/>
+                    android:text="@string/sample_password" />
             </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>

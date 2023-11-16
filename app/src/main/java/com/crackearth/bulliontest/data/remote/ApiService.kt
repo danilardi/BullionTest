@@ -32,11 +32,11 @@ interface ApiService {
     @GET("admin")
     suspend fun getListUser(
         @Header("Authorization") Authorization: String? = null,
-    ) : UsersResponse
+    ): UsersResponse
 
     @GET("admin/{id}")
     suspend fun getDetailUser(
         @Header("Authorization") Authorization: String? = null,
         @Path("id") id: String
-    ) : DetailUserResponse
+    ): DetailUserResponse
 }

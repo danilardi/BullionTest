@@ -25,26 +25,26 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@id/btn_register"
-            tools:listitem="@layout/item_user"
-            tools:itemCount="10"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:itemCount="10"
+            tools:listitem="@layout/item_user" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_register"
             android:layout_width="0dp"
             android:layout_height="55dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="32dp"
             android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="24dp"
-            android:text="Add Users"
-            app:layout_constraintTop_toBottomOf="@id/rv_users"
+            android:layout_marginBottom="32dp"
+            android:text="@string/add_users"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rv_users" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -9,7 +9,8 @@ import com.crackearth.bulliontest.model.DataLoginResponse
 import com.crackearth.bulliontest.repository.Repository
 import kotlinx.coroutines.launch
 
-class MainViewModel(private val pref: AuthPreferences, private val repository: Repository): ViewModel() {
+class MainViewModel(private val pref: AuthPreferences, private val repository: Repository) :
+    ViewModel() {
     companion object {
         private const val TAG = "MainViewModel"
     }

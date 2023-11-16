@@ -3,7 +3,7 @@ package com.crackearth.bulliontest.ui.auth
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
+import android.util.Patterns
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -25,6 +25,7 @@ class LoginActivity : AppCompatActivity() {
     private val authViewModel: AuthViewModel by viewModels {
         ViewModelFactory.getInstance(dataStore)
     }
+    private var loginValid = false
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,35 +36,23 @@ class LoginActivity : AppCompatActivity() {
 
         isLogin()
 
-        binding.btnRegister.setOnClickListener {
-            val intent = Intent(this, RegisterActivity::class.java)
-            startActivity(intent)
-        }
-
         binding.btnLogin.setOnClickListener {
             val email = binding.edtEmail.text.toString()
             val password = binding.edtPassword.text.toString()
 
-            when {
-                email.isEmpty() -> {
-                    binding.edtEmail.error = "Masukkan email"
-                    Toast.makeText(this@LoginActivity, "Masukkan email", Toast.LENGTH_SHORT).show()
-                }
-
-                password.isEmpty() -> {
-                    binding.edtPassword.error = "Masukkan password"
-                    Toast.makeText(this@LoginActivity, "Masukkan password", Toast.LENGTH_SHORT)
-                        .show()
-                }
-
-                else -> {
-                    val data = LoginRequest(
-                        email,
-                        password.sha256()
-                    )
-                    login(data)
-                }
+            if (isLoginValid()) {
+                val data = LoginRequest(
+                    email, password.sha256()
+                )
+                login(data)
+            } else {
+                Toast.makeText(this@LoginActivity, "Lengkapi Data", Toast.LENGTH_SHORT).show()
             }
+        }
+
+        binding.btnRegister.setOnClickListener {
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
         }
     }
 
@@ -74,7 +63,6 @@ class LoginActivity : AppCompatActivity() {
                 is Response.Success -> {
                     showLoading(false)
                     authViewModel.setAuth(response.data.dataLoginResponse)
-                    Toast.makeText(this, "yeay berhasil login", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
                     finish()
@@ -98,15 +86,33 @@ class LoginActivity : AppCompatActivity() {
         authViewModel.getAuth().observe(this) { user ->
             if (user.token != "null") {
                 showLoading(false)
-                Log.d(TAG, "isLogin: token ada = ${user.token}")
                 startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                 finish()
-            } else {
-                Log.d(TAG, "isLogin: token null = ${user.token}")
-                showLoading(false)
             }
+            showLoading(false)
 
         }
+    }
+
+    private fun isLoginValid(): Boolean {
+        val email = binding.edtEmail.text.toString()
+        val password = binding.edtPassword.text.toString()
+
+        when {
+            email.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(email).matches() -> {
+                binding.edtEmail.error = "Wrong Format"
+            }
+
+            password.isEmpty() || password.length < 8 -> {
+                binding.edtPassword.error = "Minimum 8 character"
+            }
+
+            else -> {
+                return true
+            }
+        }
+        return false
+
     }
 
     private fun showLoading(isLoading: Boolean) {

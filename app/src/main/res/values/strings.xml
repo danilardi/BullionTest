@@ -8,4 +8,28 @@
     <string name="placeholder_here">Placeholder here</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="name">Name</string>
+    <string name="gender">Gender</string>
+    <string name="add_users">Add Users</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="date_of_birth">Date of Birth</string>
+    <string name="address">Address</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="photo_profile">Photo Profile</string>
+    <string name="min_8_char_min_1_capital_and_number">Min 8 Char | Min 1 Capital and Number</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="make_sure_the_password_matches">Make sure the password matches</string>
+    <string name="sample_email">admin@email.com</string>
+    <string name="sample_password">admin123</string>
+    <string name="update_users">Update Users</string>
+    <string name="logout">Logout</string>
+    <string name="back_button">back button</string>
+    <string name="close_button">close button</string>
+    <string name="edit_user">Edit User</string>
+    <string name="sample_name">danil</string>
+    <string name="sample_address">alamatku</string>
+    <string name="sample_phone">0813123132</string>
+    <string name="sample_email_2">danil@gmail.com</string>
+    <string name="sample_password_2">Danil123</string>
 </resources>

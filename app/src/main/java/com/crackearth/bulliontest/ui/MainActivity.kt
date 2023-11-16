@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
     private val mainViewModel: MainViewModel by viewModels {
         ViewModelFactory.getInstance(dataStore)
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -35,7 +36,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.appBar.tvLogout.setOnClickListener {
             mainViewModel.clearSession()
-            Toast.makeText(this, "yeay berhasil logout", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "berhasil logout", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             finish()
@@ -57,10 +58,12 @@ class MainActivity : AppCompatActivity() {
                             showLoading(false)
                             setUserData(response.data.data)
                         }
+
                         is Response.Error -> {
                             showLoading(false)
                             Toast.makeText(this, "Terjadi Kesalahan", Toast.LENGTH_SHORT).show()
                         }
+
                         is Response.Loading -> {
                             showLoading(true)
                         }

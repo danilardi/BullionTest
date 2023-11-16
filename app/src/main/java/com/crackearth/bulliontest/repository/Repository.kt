@@ -31,14 +31,17 @@ class Repository(private val apiService: ApiService) {
             Log.d(TAG, "login: ${e.message.toString()}")
         }
     }
-    fun register(file: File,
-                 data: RegisterRequest): LiveData<Response<RegisterResponse>> = liveData {
+
+    fun register(
+        file: File,
+        data: RegisterRequest
+    ): LiveData<Response<RegisterResponse>> = liveData {
         emit(Response.Loading)
         try {
             val requestBody = HashMap<String, RequestBody>()
             requestBody["first_name"] = data.first_name.toRequestBody("text/plain".toMediaType())
             requestBody["last_name"] = data.last_name.toRequestBody("text/plain".toMediaType())
-            requestBody["gender"] = data.gender.lowercase().toRequestBody("text/plain".toMediaType())
+            requestBody["gender"] = data.gender.toRequestBody("text/plain".toMediaType())
             requestBody["date_of_birth"] = data.date_of_birth.toRequestBody("text/plain".toMediaType())
             requestBody["email"] = data.email.toRequestBody("text/plain".toMediaType())
             requestBody["phone"] = data.phone.toRequestBody("text/plain".toMediaType())

@@ -20,6 +20,7 @@ class ViewModelFactory private constructor(
                 pref,
                 repository
             ) as T
+
             modelClass.isAssignableFrom(MainViewModel::class.java) -> MainViewModel(
                 pref,
                 repository

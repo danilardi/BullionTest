@@ -26,6 +26,7 @@ class EditUserActivity : AppCompatActivity() {
     private val editUserViewModel: MainViewModel by viewModels {
         ViewModelFactory.getInstance(dataStore)
     }
+
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +41,7 @@ class EditUserActivity : AppCompatActivity() {
             getDate()
         }
 
-        binding.backTopBar.btnBack.setOnClickListener{
+        binding.backTopBar.btnBack.setOnClickListener {
             finish()
         }
 
@@ -106,7 +107,11 @@ class EditUserActivity : AppCompatActivity() {
 
         val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
         val date = LocalDate.parse(data.dateOfBirth, formatter)
-        binding.edtBirth.setText("${date.dayOfMonth} ${date.month.toString().lowercase().replaceFirstChar { it.uppercase() }} ${date.year}")
+        binding.edtBirth.setText(
+            "${date.dayOfMonth} ${
+                date.month.toString().lowercase().replaceFirstChar { it.uppercase() }
+            } ${date.year}"
+        )
 
     }
 
