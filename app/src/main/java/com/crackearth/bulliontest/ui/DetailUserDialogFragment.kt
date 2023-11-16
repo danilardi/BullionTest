@@ -45,6 +45,7 @@ class DetailUserDialogFragment : DialogFragment() {
         return binding.root
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -57,10 +58,13 @@ class DetailUserDialogFragment : DialogFragment() {
         }
 
         binding.btnEdit.setOnClickListener {
-            onDestroyView()
+            val intent = Intent(requireContext(), EditUserActivity::class.java)
+            intent.putExtra(EditUserActivity.EXTRA_ID, id)
+            startActivity(intent)
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun getUserData(id: String) {
         detailUserViewModel.getAuth().observe(this) { user ->
             if (user.token != "null") {

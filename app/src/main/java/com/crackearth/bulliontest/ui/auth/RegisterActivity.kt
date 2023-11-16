@@ -49,7 +49,6 @@ class RegisterActivity : AppCompatActivity() {
             getDate()
         }
 
-
         binding.tlPhotoProfile.setEndIconOnClickListener {
             startGallery()
         }
