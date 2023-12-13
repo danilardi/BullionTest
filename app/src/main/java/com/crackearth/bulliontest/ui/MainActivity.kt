@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         recyclerViewSetup()
         getListUser()
 
-//        test commit
+//        test commit2
 
         binding.appBar.tvLogout.setOnClickListener {
             mainViewModel.clearSession()
