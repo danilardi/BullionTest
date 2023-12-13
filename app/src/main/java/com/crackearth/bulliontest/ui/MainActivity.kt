@@ -34,6 +34,8 @@ class MainActivity : AppCompatActivity() {
         recyclerViewSetup()
         getListUser()
 
+//        test commit
+
         binding.appBar.tvLogout.setOnClickListener {
             mainViewModel.clearSession()
             Toast.makeText(this, "berhasil logout", Toast.LENGTH_SHORT).show()
